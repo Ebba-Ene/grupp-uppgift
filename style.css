@@ -10,7 +10,7 @@ body{
 header{
   display: flex;
   justify-content: center;
-  background-color: lightblue;
+  background-color: lightpink;
   color: white;
   font-size: 2rem;
   width: 100%;
