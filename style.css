@@ -1,6 +1,7 @@
 *{
   padding: 0;
   margin: 0;
+  transition: .5s;
 }
 
 body{
@@ -18,11 +19,35 @@ header{
 
 main{
   background-color: white;
-  border-radius: 5px;
   height: 15rem;
   width: 25rem;
-  margin: 2rem;
+
+  border-radius: 5px;
   border: .5px solid rgba(235, 226, 216, 0.822);
+  
+  margin: 2rem;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+button{
+  background-color: lightblue;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  transition: opacity 1s;
+
+  margin-bottom: 20px;
+}
+
+button:hover{
+  opacity: .6;
+  cursor: pointer;
 }
 
 .container{
