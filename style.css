@@ -1,4 +1,4 @@
-*{
+/* *{
   padding: 0;
   margin: 0;
   transition: .5s;
@@ -18,7 +18,7 @@ header{
 }
 
 main{
-  background-color: white;
+  background-color: rgb(244, 233, 233);
   height: 15rem;
   width: 25rem;
 
@@ -53,4 +53,4 @@ button:hover{
 .container{
   display: flex;
   justify-content: center;
-}
+} /*
