@@ -1,56 +1,106 @@
-*{
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;700&display=swap');
+
+* {
   margin: 0;
-  transition: .5s;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
 }
 
-body{
-  background-color: rgb(252, 243, 231);
-}
-
-header{
+body {
+  background-color: #fcf3e7;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  background-color: lightblue;
-  color: black;
-  font-size: 2rem;
-  width: 100%;
-}
-
-main{
-  background-color: white;
-  height: 15rem;
-  width: 25rem;
-
-  border-radius: 5px;
-  border: .5px solid rgba(235, 226, 216, 0.822);
-  
-  margin: 2rem;
-  padding: 10px;
-
-  display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Pixelify Sans', sans-serif;
+  padding-top: 4rem;
+}
+
+header {
+  background-color: #a2d2ff;
+  width: 100%;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  color: #222;
+  padding: 1rem 0;
+  text-shadow: 1px 1px #fff;
+  margin-bottom: 1rem;
+}
+
+main {
+  background-color: #f4e9e9;
+  width: 34rem;
+  border-radius: 10px;
+  border: 1px solid rgba(235, 226, 216, 0.9);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+  box-shadow: 4px 4px 0px #a2d2ff;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+h2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.9rem;
+}
+
+p {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+button {
+  background-color: #a2d2ff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  color: #000;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 #000;
+  transition: all 0.2s ease-in-out;
+
+  margin-top: 1rem;
   
 }
 
-button{
-  background-color: lightblue;
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  transition: opacity 1s;
-
-  margin-bottom: 20px;
-}
-
-button:hover{
-  opacity: .6;
+button:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
   cursor: pointer;
 }
 
-.container{
+.categories {
   display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
   justify-content: center;
 }
+
+#startBtn {
+  background-color: #bde0fe;
+  border: 2px solid #000;
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 3px 3px 0 #000;
+}
+
+#startPage, #categoryPicker, #webQuiz, #geoQuiz, #sportQuiz, #doneDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+
