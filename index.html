@@ -1,39 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv"> <!-- Ändrade till sve -->
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupp Uppgift</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grupp Uppgift – Quiz</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
+
   <body>
-    <header>
-      <h1>Quiz</h1>
+
+    <header class="site-header">
+      <h1 id="app-title">Quiz</h1>  <!-- id så vi kan komma åt det lätt sen -->
     </header>
 
-    <div class="container">
-      <main>
-        <!-- <h2 id="welcome-txt">Välkommen</h2>
-        <p id="quiz-description">Detta är ett quiz med tre teman där du behöver svara på 5 frågor, du måste svara rätt på tre för att klara dig</p>
-        <button id="startBtn">Starta quizet</button> -->
-      </main>
-    </div>
+    <section>
+      <h2 id="score">Poäng: <span>0</span></h2>
+    </section>
 
-    <div class="container">
-      
-      <!-- <main>
-        <p>Fråga 1</p>
-        <h2 id="question">Vilket språk används för att styla webbsidor?</h2>
-        
-        <div class="btns">
-          <button id="startBtn">HTML</button>
-          <button id="startBtn">CSS</button>
-          <button id="startBtn">JavaScript</button>
+    <main id="main" class="site-main">
+      <div id="startPage">
+        <h2 id="start-heading">Välkommen</h2>
+        <p id="quiz-description">
+          Detta är ett quiz med tre kategorier. Du får fem frågor och behöver minst tre rätt för att klara det, eller nåt.
+        </p>
+
+        <!-- Ashur sa att bättre med ID än classes + attribut som sparar värdena för JS senare -->
+        <div id="category-picker">
+          <button id="webbQuizBtn">Webbutveckling</button>
+          <button id="geoQuizBtn">Geografi</button>
+          <button id="sportQuizBtn" >Sport</button>
         </div>
-      </main> -->
+      </div>
 
-    </div>
+    </main>
+
+    <footer> <!-- Kanske snyggt med en footer? -->
+      <p>© 2025 Grupp A – Quizprojekt</p>
+    </footer>
 
   </body>
 </html>
