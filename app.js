@@ -1,5 +1,5 @@
 
-  let score = 0;
+let score = 0;
 
 //Hämta id från html
 const ScoreCounter = document.querySelector("#score span");
@@ -40,54 +40,54 @@ const geografi =
 [{
     text: "Vilket är världens största land till ytan?", 
     options: ["Kanada", "Kina", "Ryssland"], 
-    correct: "Ryssland"
+    correct: 2
   },
   {
     text: "Vilken flod rinner genom Egypten?", 
     options: ["Nilen", "Amazonas", "Mississippifloden"], 
-    correct: "Nilen"
+    correct: 0
   },
   {
     text: "Vilken är Europas högsta bergstopp?", 
     options: ["Matterhorn", "Mont Blanc", "Elbrus"], 
-    correct: "Mont Blanc"
+    correct: 1
   },
   {
     text: "Vilket land har störst befolkning i världen?", 
     options: ["Indien", "Kina", "USA"], 
-    correct: "Indien"
+    correct: 0
   },
   {
     text: "Vilken ö är världens största?", 
     options: ["Madagaskar", "Nya Guinea", "Grönland"], 
-    correct: "Grönland"
+    correct: 2
   }]
 
   const sport = 
 [{
     text: "Vilket land vann VM 2018?", 
     options: ["Tyskland", "Frankrike", "Brasilien"], 
-    correct: "Frankrike"
+    correct: 1
   },
   {
     text: "Hur många spelare i ett fotbollslag?", 
     options: ["9", "11", "13"], 
-    correct: "11"
+    correct: 1
   },
   {
     text: "Vilken sport spelas med racket och boll på gräs?", 
     options: ["Tennis", "Baseboll", "Cricket"], 
-    correct: "Tennis"
+    correct: 0
   },
   {
     text: "Vilken sport är Zlatan känd för?", 
     options: ["Basket", "Hockey", "Fotboll"], 
-    correct: "Fotboll"
+    correct: 2
   },
   {
     text: "Hur lång är en maraton?", 
     options: ["42 km", "21 km", "10 km"], 
-    correct: "42 km"
+    correct: 0
   }]
 
 
@@ -138,9 +138,30 @@ function showSportQuiz() {
   showQuestions(sport, sportQuizPage);
 }
 
-
 //Gör så att frågor och svar dycker upp
 function showQuestions(whichQuiz, whichPage){
+   if(currentQuestionIndex > 4){
+    whichPage.style.display = "none"
+
+    const finishedPage = document.createElement('div')
+    finishedPage.id = 'finishedPage'
+
+    const finishedHeader = document.createElement('h2')
+
+    if (score === 5){
+      finishedHeader.innerHTML = "Du fick alla rätt!"
+    } else if (score >= 3){
+      finishedHeader.innerHTML = "Du klarade det!"
+    } else {
+      finishedHeader.innerHTML = "Du förlora"
+    }
+
+    console.log(finishedHeader)
+
+    main.appendChild(finishedPage)
+    finishedPage.appendChild(finishedHeader)
+  }
+
   const questionObj = whichQuiz[currentQuestionIndex];
 
   const questionHeading = document.createElement('h2')
@@ -156,28 +177,11 @@ function showQuestions(whichQuiz, whichPage){
       }
       updateScoreDisplay();
       currentQuestionIndex++;
+      whichPage.innerHTML = ""
       showQuestions(whichQuiz, whichPage)
-      console.log(score)
     })
     answersUl.appendChild(li)
   })
-
-  if(currentQuestionIndex > 4){
-    whichPage.style.display = "none"
-
-    const finishedPage = document.createElement('div')
-    finishedPage.id = 'finishedPage'
-
-    const finishedHeader = document.createElement('h2')
-
-    if(score === 5){
-      finishedHeader.innerHTML = "Du fick alla rätt!"
-    } else if(score >= 3){
-      finishedHeader.innerHTML = "Du klarade det!"
-    }else{
-      finishedHeader.innerHTML = "Du förlora"
-    }
-  }
 
   whichPage.appendChild(questionHeading)
   whichPage.appendChild(answersUl)
