@@ -1,8 +1,8 @@
 
-let score = 0;
+let score = 0
 
 //Hämta id från html
-const ScoreCounter = document.querySelector("#scoreBar span");
+const ScoreCounter = document.querySelector("#scoreBar span")
 const scoreBar = document.getElementById('scoreBar')
 const main = document.getElementById('main')
 const startPage = document.getElementById('startPage')
@@ -37,7 +37,7 @@ const webDevelopmentQuiz =
     correct: 2
   }]
 
-const geografi = 
+const geografiQuiz = 
 [{
     text: "Vilket är världens största land till ytan?", 
     options: ["Kanada", "Kina", "Ryssland"], 
@@ -64,7 +64,7 @@ const geografi =
     correct: 2
   }]
 
-  const sport = 
+  const sportQuiz = 
 [{
     text: "Vilket land vann VM 2018?", 
     options: ["Tyskland", "Frankrike", "Brasilien"], 
@@ -118,7 +118,7 @@ sportQuizBtn.addEventListener('click', () => {
 
 })
 
-let currentQuestionIndex = 0;
+let currentQuestionIndex = 0
 
 //Skapar funktioner för alla ämnen
 function showWebbQuiz() {
@@ -134,14 +134,14 @@ function showGeoQuiz() {
   geoQuizPage.id = "geoQuizPage"
   main.appendChild(geoQuizPage)
 
-  showQuestions(geografi, geoQuizPage);
+  showQuestions(geografiQuiz, geoQuizPage);
 }
 
 function showSportQuiz() {
   const sportQuizPage = document.createElement('div')
   sportQuizPage.id = "sportQuizPage"
   main.appendChild(sportQuizPage)
-  showQuestions(sport, sportQuizPage);
+  showQuestions(sportQuiz, sportQuizPage);
 }
 
 //Gör så att frågor och svar dycker upp
@@ -177,13 +177,13 @@ function showQuestions(whichQuiz, whichPage){
       startPage.style.display = "block"
 
       score = 0
-      updateScoreDisplay();
-      currentQuestionIndex = 0;
+      updateScoreDisplay()
+      currentQuestionIndex = 0
     })
 
   }
 
-  const questionObj = whichQuiz[currentQuestionIndex];
+  const questionObj = whichQuiz[currentQuestionIndex]
 
   const questionHeading = document.createElement('h2')
   questionHeading.innerHTML = questionObj.text
@@ -196,8 +196,8 @@ function showQuestions(whichQuiz, whichPage){
       if(i === questionObj.correct){
         score++;
       }
-      updateScoreDisplay();
-      currentQuestionIndex++;
+      updateScoreDisplay()
+      currentQuestionIndex++
       whichPage.innerHTML = ""
       showQuestions(whichQuiz, whichPage)
     })
