@@ -2,7 +2,8 @@
 let score = 0;
 
 //Hämta id från html
-const ScoreCounter = document.querySelector("#score span");
+const ScoreCounter = document.querySelector("#scoreBar span");
+const scoreBar = document.getElementById('scoreBar')
 const main = document.getElementById('main')
 const startPage = document.getElementById('startPage')
 const webbQuizBtn = document.getElementById('webbQuizBtn')
@@ -90,6 +91,7 @@ const geografi =
     correct: 0
   }]
 
+scoreBar.style.display = "none"
 
 function updateScoreDisplay() {
   ScoreCounter.textContent = score;
@@ -99,20 +101,24 @@ function updateScoreDisplay() {
 webbQuizBtn.addEventListener('click', () => {
   showWebbQuiz()
   startPage.style.display = "none"
+  scoreBar.style.display = "block"
 })
 
 geoQuizBtn.addEventListener('click', () => {
   showGeoQuiz()
   startPage.style.display = "none"
+  scoreBar.style.display = "block"
+
 })
 
 sportQuizBtn.addEventListener('click', () => {
   showSportQuiz()
   startPage.style.display = "none"
+  scoreBar.style.display = "block"
+
 })
 
 let currentQuestionIndex = 0;
-
 
 //Skapar funktioner för alla ämnen
 function showWebbQuiz() {
@@ -160,6 +166,21 @@ function showQuestions(whichQuiz, whichPage){
 
     main.appendChild(finishedPage)
     finishedPage.appendChild(finishedHeader)
+
+    const playAgainBtn = document.createElement('button')
+    playAgainBtn.innerHTML = "Spela igen"
+
+    finishedPage.appendChild(playAgainBtn)
+
+    playAgainBtn.addEventListener('click', () => {
+      finishedPage.style.display = "none"
+      startPage.style.display = "block"
+
+      score = 0
+      updateScoreDisplay();
+      currentQuestionIndex = 0;
+    })
+
   }
 
   const questionObj = whichQuiz[currentQuestionIndex];
