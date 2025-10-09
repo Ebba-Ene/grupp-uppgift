@@ -79,6 +79,7 @@ button:hover {
   opacity: 0.8;
   transform: translateY(-2px);
   cursor: pointer;
+  background-color: lightpink;
 }
 
 .categories {
@@ -88,19 +89,45 @@ button:hover {
   justify-content: center;
 }
 
-#startBtn {
-  background-color: #bde0fe;
-  border: 2px solid #000;
-  font-size: 0.7rem;
-  margin-bottom: 0.5rem;
-  box-shadow: 3px 3px 0 #000;
-}
-
-#startPage, #categoryPicker, #webQuiz, #geoQuiz, #sportQuiz, #doneDiv{
+#startPage, #webQuizPage, #geoQuizPage, #sportQuizPage, #finishedPage{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.3rem;
+}
+
+div h2{
+  margin-bottom: 1rem;
+}
+
+div ul{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div li {
+  list-style: none;
+  background-color: #a2d2ff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  color: #000;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 #000;
+  transition: all 0.2s ease-in-out;
+
+  width: 30%;
+  margin-top: 1rem;
+}
+
+div li:hover{
+  opacity: 0.8;
+  transform: translateY(-2px);
+  cursor: pointer;
+  background-color: lightpink;
 }
 
 
