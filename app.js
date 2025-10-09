@@ -4,8 +4,9 @@ let score, questionIndex, activeQuestions;
 const ScoreCounter = document.querySelector(".score span");
 const main = document.getElementById('main')
 const startPage = document.getElementById('startPage')
-const startBtn = document.getElementById('startBtn')
-
+const webbQuizBtn = document.getElementById('webbQuizBtn')
+const geoQuizBtn = document.getElementById('geoQuizBtn')
+const sportQuizBtn = document.getElementById('sportQuizBtn')
 
 //Frågor och svar
 const webDevelopmentQuiz = 
@@ -87,84 +88,62 @@ const geografi =
     correct: 0
   }]
 
-function shuffle(array) {
-  return array.sort(() => Math.random() - 0.5);
-}
 
 function updateScoreDisplay() {
   ScoreCounter.textContent = score;
 }
 
 //starta quizet
-startBtn.addEventListener('click', (e) => {
-  categoryPicker()
+webbQuizBtn.addEventListener('click', (e) => {
+  showWebQuiz()
   startPage.style.display = "none"
 })
 
-function categoryPicker() {
-  //Skapa diven för att välja ämne
-  const categoryPicker = document.createElement('div')
-  categoryPicker.id = "categoryPicker"
+geoQuizBtn.addEventListener('click', (e) => {
+  showGeoQuiz()
+  startPage.style.display = "none"
+})
 
-  //Skapar innehållet i diven
-  const catHeading = document.createElement('h2')
-  catHeading.innerHTML = "Vilket ämne?"
+sportQuizBtn.addEventListener('click', (e) => {
+  showSportQuiz()
+  startPage.style.display = "none"
+})
 
-  const catWebBtn = document.createElement('button')
-  catWebBtn.id = "catWebBtn"
-  catWebBtn.innerHTML = "Webbutveckling"
+//Webbutveckling
+let currentQuestionIndex = 0;
 
-  const catGeoBtn = document.createElement('button')
-  catGeoBtn.id = "catGeoBtn"
-  catGeoBtn.innerHTML = "Geografi"
+function showWebQuiz() {
+  const webbQuizPage = document.createElement('div')
+  webbQuizPage.id = "webbQuiz"
 
-  const catSportBtn = document.createElement('button')
-  catSportBtn.id = "catSportBtn"
-  catSportBtn.innerHTML = "Sport"
+  const questionObj = webDevelopmentQuiz[currentQuestionIndex];
 
-  //Skicka till webbsidan
-  main.appendChild(categoryPicker)
-  categoryPicker.appendChild(catHeading)
-  categoryPicker.appendChild(catWebBtn)
-  categoryPicker.appendChild(catGeoBtn)
-  categoryPicker.appendChild(catSportBtn)
+  // //Skapar frågan
+  const webbQuestion = document.createElement('h2')
+  webbQuestion.innerHTML = questionObj.text
+  webbQuestion.id = "webbQuestion"
 
-  //Webbutveckling
-  let currentQuestionIndex = 0;
+  // //Skapar svar
+  const webbAnswers = document.createElement('ul')
+  webbAnswers.id = "webbAnswers";
+  const opt1 = document.createElement('li')
+  const opt2 = document.createElement('li')
+  const opt3 = document.createElement('li')
 
-  function showWebQuiz() {
+  opt1.textContent = questionObj.options[0];
+  opt2.textContent = questionObj.options[1];
+  opt3.textContent = questionObj.options[2];
 
-    const questionObj = webDevelopmentQuiz[currentQuestionIndex];
-    document.getElementById('catHeading').textContent = questionObj.text;
-    // const webbQuiz = document.createElement('div')
-    // webbQuiz.id = "webbQuiz"
+  // //Skickar upp
+  main.appendChild(webbQuizPage)
+  webbQuizPage.appendChild(webbQuestion)
+  webbQuizPage.appendChild(webbAnswers)
+  webbAnswers.appendChild(opt1)
+  webbAnswers.appendChild(opt2)
+  webbAnswers.appendChild(opt3)
 
-    // //Skapar frågan
-    // const webbQuestion = document.createElement('h2')
-    // webbQuestion.innerHTML = "Loading..."
-    // webbQuestion.id = "webbQuestion"
-
-    // //Skapar svar
-    // const webbAnswers = document.createElement('ul')
-    // webbAnswers.id = "answers";
-    // const opt1 = document.createElement('li')
-    // const opt2 = document.createElement('li')
-    // const opt3 = document.createElement('li')
-
-    // //Skickar upp
-    // main.appendChild(webbQuiz)
-    // webbQuiz.appendChild(webbQuestion)
-    // webbQuiz.appendChild(webbAnswers)
-    // webbAnswers.appendChild(opt1)
-    // webbAnswers.appendChild(opt2)
-    // webbAnswers.appendChild(opt3)
-
-  }
 }
-  catWebBtn.addEventListener('click', (e) => {
-    showWebQuiz();
-    e.target.parentElement.style.display = "none";
-  })
+
 
 
 

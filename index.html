@@ -25,15 +25,13 @@
           Detta är ett quiz med tre kategorier. Du får fem frågor och behöver minst tre rätt för att klara det, eller nåt.
         </p>
 
-        <button id="startBtn">Starta quizet</button>
+        <!-- Ashur sa att bättre med ID än classes + attribut som sparar värdena för JS senare -->
+        <div id="category-picker">
+          <button id="webbQuizBtn" data-category="web">Webbutveckling</button>
+          <button id="geoQuizBtn" data-category="geo">Geografi</button>
+          <button id="sportQuizBtn" data-category="sport">Sport</button>
+        </div>
       </div>
-
-      <!-- Ashur sa att bättre med ID än classes + attribut som sparar värdena för JS senare -->
-      <!-- <div id="category-picker">
-        <button id="cat-web" data-category="web">Webbutveckling</button>
-        <button id="cat-geo" data-category="geo">Geografi</button>
-        <button id="cat-sport" data-category="sport">Sport</button>
-      </div> -->
 
       <!-- <div id="webbQuiz">
         <h2 id="webbQuestions">Loading...</h2>
