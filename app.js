@@ -1,4 +1,5 @@
-let score, questionIndex, activeQuestions;
+document.addEventListener("DOMContentLoaded", () => {
+  let score, questionIndex;
 
 //Hämta id från html
 const ScoreCounter = document.querySelector(".score span");
@@ -94,56 +95,64 @@ function updateScoreDisplay() {
 }
 
 //starta quizet
-webbQuizBtn.addEventListener('click', (e) => {
-  showWebQuiz()
+webbQuizBtn.addEventListener('click', () => {
+  showWebbQuiz()
   startPage.style.display = "none"
 })
 
-geoQuizBtn.addEventListener('click', (e) => {
+geoQuizBtn.addEventListener('click', () => {
   showGeoQuiz()
   startPage.style.display = "none"
 })
 
-sportQuizBtn.addEventListener('click', (e) => {
+sportQuizBtn.addEventListener('click', () => {
   showSportQuiz()
-  startPage.style.display = "none"
+  startPage.innerHTML = ""
 })
 
 //Webbutveckling
 let currentQuestionIndex = 0;
 
-function showWebQuiz() {
+function showWebbQuiz() {
   const webbQuizPage = document.createElement('div')
-  webbQuizPage.id = "webbQuiz"
-
-  const questionObj = webDevelopmentQuiz[currentQuestionIndex];
-
-  // //Skapar frågan
-  const webbQuestion = document.createElement('h2')
-  webbQuestion.innerHTML = questionObj.text
-  webbQuestion.id = "webbQuestion"
-
-  // //Skapar svar
-  const webbAnswers = document.createElement('ul')
-  webbAnswers.id = "webbAnswers";
-  const opt1 = document.createElement('li')
-  const opt2 = document.createElement('li')
-  const opt3 = document.createElement('li')
-
-  opt1.textContent = questionObj.options[0];
-  opt2.textContent = questionObj.options[1];
-  opt3.textContent = questionObj.options[2];
-
-  // //Skickar upp
-  main.appendChild(webbQuizPage)
-  webbQuizPage.appendChild(webbQuestion)
-  webbQuizPage.appendChild(webbAnswers)
-  webbAnswers.appendChild(opt1)
-  webbAnswers.appendChild(opt2)
-  webbAnswers.appendChild(opt3)
-
+  webbQuizPage.id = "webbQuizPage"
+  showQuestions(webDevelopmentQuiz, webbQuizPage);
 }
 
+function showGeoQuiz() {
+  const geoQuizPage = document.createElement('div')
+  geoQuizPage.id = "geoQuizPage"
+  showQuestions(geografi, geoQuizPage);
+}
 
+function showSportQuiz() {
+  const sportQuizPage = document.createElement('div')
+  sportQuizPage.id = "sportQuizPage"
+  showQuestions(sport, sportQuizPage);
+}
 
+function showQuestions(whichQuiz, whichDiv){
+  const questionObj = whichQuiz[currentQuestionIndex];
 
+  const questionHeading = document.createElement('h2')
+  questionHeading.innerHTML = questionObj.text
+
+  const answersUl = document.createElement('ul')
+  questionObj.options.forEach((opt, i) => {
+    const li = document.createElement('li')
+    li.textContent = opt
+    li.addEventListener('click', () =>{
+      handleAnswers(i)
+    })
+    answersUl.appendChild(li)
+
+    console.log(li)
+  })
+
+  main.appendChild(whichDiv)
+  whichDiv.appendChild(questionHeading)
+  whichDiv.appendChild(answersUl)
+}
+
+// function handleAnswers(selectedIndex)
+})
