@@ -130,4 +130,14 @@ div li:hover{
   background-color: lightpink;
 }
 
+footer{
+  margin: 14rem;
+  padding: 10px 10px ;
+  justify-content: center;
+  text-align: center;
+  background-color: #a2d2ff;
+  width: 100%;
+  /*margin-top: 14rem;*/
+}
+
 

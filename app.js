@@ -141,7 +141,6 @@ function showSportQuiz() {
   const sportQuizPage = document.createElement('div')
   sportQuizPage.id = "sportQuizPage"
   main.appendChild(sportQuizPage)
-  showQuestions(sportQuiz, sportQuizPage);
 }
 
 //Gör så att frågor och svar dycker upp
@@ -159,7 +158,7 @@ function showQuestions(whichQuiz, whichPage){
     } else if (score >= 3){
       finishedHeader.innerHTML = "Du klarade det!"
     } else {
-      finishedHeader.innerHTML = "Du förlora"
+      finishedHeader.innerHTML = "Du förlorade!"
     }
 
     console.log(finishedHeader)
