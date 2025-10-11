@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv"> <!-- Ändrade till sve -->
+<html lang="sv"> 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,31 +11,31 @@
   <body>
 
     <header class="site-header">
-      <h1 id="app-title">Quiz</h1>  <!-- id så vi kan komma åt det lätt sen -->
+      <h1 id="app-title">Quiz</h1>  
     </header>
 
     <section>
-      <h2 id="score">Poäng: <span>0</span></h2>
+      <h2 id="scoreBar">Poäng: <span>0</span></h2>
     </section>
 
     <main id="main" class="site-main">
       <div id="startPage">
-        <h2 id="start-heading">Välkommen</h2>
-        <p id="quiz-description">
-          Detta är ett quiz med tre kategorier. Du får fem frågor och behöver minst tre rätt för att klara det, eller nåt.
+        <h2 id="start-heading" class="centered-box">Välkommen</h2>
+        <p id="quiz-description" class="centered-box">
+          Det här är Grupp A's quiz som vardera har 5 frågor per kategori, du måste svara rätt på minst 3 frågor för att klara quizzet. 
+          Vänligen välj en kategori för att starta. Lycka till!
         </p>
-
-        <!-- Ashur sa att bättre med ID än classes + attribut som sparar värdena för JS senare -->
-        <div id="category-picker">
+    
+        <div id="category-picker" class="categories">
           <button id="webbQuizBtn">Webbutveckling</button>
           <button id="geoQuizBtn">Geografi</button>
-          <button id="sportQuizBtn" >Sport</button>
+          <button id="sportQuizBtn">Sport</button>
         </div>
       </div>
 
     </main>
 
-    <footer> <!-- Kanske snyggt med en footer? -->
+    <footer> 
       <p>© 2025 Grupp A – Quizprojekt</p>
     </footer>
 

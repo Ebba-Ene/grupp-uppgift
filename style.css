@@ -154,11 +154,11 @@ div li:hover{
 
 .answers li {
  list-style: none;
- background-color: #a2ad2f;
+ background-color: #a2d2ff;
  border: 2px solid #000;
  border-radius: 8px;
  box-shadow: 3px 3px 0 #000;
- font-family: 'Press Start 2P, cursive';
+ font-family: 'Press Start 2P', cursive;
  font-size: 0.6rem;
  color: #000;
  text-transform: uppercase;
