@@ -180,6 +180,8 @@ function showQuestions(whichQuiz, whichPage){
       score = 0
       updateScoreDisplay()
       currentQuestionIndex = 0
+
+      scoreBar.style.display = "none"
     })
     return
 
