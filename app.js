@@ -198,6 +198,7 @@ function showQuestions(whichQuiz, whichPage){
 
   questionObj.options.forEach((opt, i) => {
     const li = document.createElement('li')
+    li.classList.add('quiz-btn')
     li.textContent = opt
     li.addEventListener('click', () =>{
       if(i === questionObj.correct){
