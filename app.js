@@ -163,13 +163,12 @@ function showQuestions(whichQuiz, whichPage){
       finishedHeader.innerHTML = "Du förlorade men försök gärna igen!"
     }
 
-    console.log(finishedHeader)
-
     main.appendChild(finishedPage)
     finishedPage.appendChild(finishedHeader)
 
     const playAgainBtn = document.createElement('button')
     playAgainBtn.innerHTML = "Spela igen"
+    playAgainBtn.classList.add('quiz-btn') 
 
     finishedPage.appendChild(playAgainBtn)
 

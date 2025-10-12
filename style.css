@@ -9,7 +9,7 @@
 
 body {
   background-color: #fcf3e7;
-  height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +32,8 @@ header {
 
 main {
   background-color: #f4e9e9;
-  width: 34rem;
+  max-width: 34rem;
+  width: 90%; 
   border-radius: 10px;
   border: 1px solid rgba(235, 226, 216, 0.9);
   padding: 2rem;
@@ -107,30 +108,6 @@ div h2{
   margin-bottom: 1rem;
 }
 
-div li {
-  list-style: none;
-  background-color: #a2d2ff;
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: 2px solid #000;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.6rem;
-  color: #000;
-  text-transform: uppercase;
-  box-shadow: 3px 3px 0 #000;
-  transition: all 0.2s ease-in-out;
-
-  width: 30%;
-  margin-top: 1rem;
-}
-
-div li:hover{
-  opacity: 0.8;
-  transform: translateY(-2px);
-  cursor: pointer;
-  background-color: lightpink;
-}
-
 .centered-box {
   display: flex;
   justify-content: center;     
@@ -156,4 +133,65 @@ div li:hover{
 
 .answers li {
  list-style: none;
+}
+
+/* Anpassningar för surfplattor/skärmar upp till 768px */
+@media only screen and (max-width: 768px) {
+  body {
+    padding-top: 2rem;
+  }
+
+  header {
+    font-size: 1.2rem;
+    padding: 1.5rem 0;
+  }
+
+  main {
+    width: 90%;              
+    padding: 1.5rem;         
+  }
+
+  h2 {
+    font-size: 0.8rem;       
+  }
+
+  p {
+    font-size: 1rem;         
+  }
+
+  .quiz-btn {
+    font-size: 0.55rem;      
+    padding: 8px 14px;      
+  }
+
+  .categories {
+    gap: 8px;
+  }
+}
+
+/* Anpassningar för mobiler upp till 480px */
+@media only screen and (max-width: 480px) {
+  header {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+
+  main {
+    width: 95%;
+    padding: 1rem;
+    box-shadow: 2px 2px 0 #a2d2ff;
+  }
+
+  h2 {
+    font-size: 0.75rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .quiz-btn {
+    font-size: 0.5rem;
+    padding: 8px 12px;
+  }
 }
