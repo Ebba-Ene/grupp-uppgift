@@ -9,7 +9,7 @@
 
 body {
   background-color: #fcf3e7;
-  height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,16 +23,17 @@ header {
   width: 100%;
   text-align: center;
   font-family: 'Press Start 2P', cursive;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #222;
-  padding: 1rem 0;
+  padding: 2rem 0;
   text-shadow: 1px 1px #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 main {
   background-color: #f4e9e9;
-  width: 40rem;
+  max-width: 34rem;
+  width: 90%; 
   border-radius: 10px;
   border: 1px solid rgba(235, 226, 216, 0.9);
   padding: 2rem;
@@ -53,26 +54,35 @@ h2 {
 
 p {
   font-family: 'Pixelify Sans', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: #333;
   line-height: 1.5;
 }
 
-button {
-  background-color: #a2d2ff;
-  padding: 10px 20px;
+#start-heading {
+  margin-bottom: 0rem;
+}
+#quiz-description {
+  margin-top: 0;
+}
+
+.quiz-btn {
+  width: 100%;
+  margin-top: 1rem;
+  border: 2px solid #000;
   border-radius: 8px;
-  border: auto solid #000;
+  box-shadow: 3px 3px 0 #000;
+  padding: 10px 20px;
+  text-align: center;
   font-family: 'Press Start 2P', cursive;
   font-size: 0.6rem;
   color: #000;
   text-transform: uppercase;
-  box-shadow: 3px 3px 0 #000;
+  background-color: #a2d2ff;
   transition: all 0.2s ease-in-out;
-  margin-top: 1rem;
 }
 
-button:hover {
+.quiz-btn:hover {
   opacity: 0.8;
   transform: translateY(-2px);
   cursor: pointer;
@@ -97,46 +107,90 @@ div h2 {
   margin-bottom: 1rem;
 }
 
-div ul {
+.centered-box {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: center;     
+  align-items: center;         
+  text-align: center;
+  overflow-wrap: anywhere;     
+  word-break: break-word;
+  padding: 1rem;
+}
+
+.question {
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.4; 
+  padding: 1rem;
+}
+
+.answers {
+  display: grid;
+  gap: 12px;
   width: 100%;
 }
 
-div li {
-  list-style: none;
-  background-color: #a2d2ff;
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: 2px solid #000;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.6rem;
-  color: #000;
-  text-transform: uppercase;
-  box-shadow: 3px 3px 0 #000;
-  transition: all 0.2s ease-in-out;
-  width: 30%;
-  margin-top: 1rem;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  text-align: center;
+.answers li {
+ list-style: none;
 }
 
-div li:hover {
-  opacity: 0.8;
-  transform: translateY(-2px);
-  cursor: pointer;
-  background-color: lightpink;
+/* Anpassningar för surfplattor/skärmar upp till 768px */
+@media only screen and (max-width: 768px) {
+  body {
+    padding-top: 2rem;
+  }
+
+  header {
+    font-size: 1.2rem;
+    padding: 1.5rem 0;
+  }
+
+  main {
+    width: 90%;              
+    padding: 1.5rem;         
+  }
+
+  h2 {
+    font-size: 0.8rem;       
+  }
+
+  p {
+    font-size: 1rem;         
+  }
+
+  .quiz-btn {
+    font-size: 0.55rem;      
+    padding: 8px 14px;      
+  }
+
+  .categories {
+    gap: 8px;
+  }
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #a2d2ff;
-  text-align: center;
-  padding: 10px;
+/* Anpassningar för mobiler upp till 480px */
+@media only screen and (max-width: 480px) {
+  header {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+
+  main {
+    width: 95%;
+    padding: 1rem;
+    box-shadow: 2px 2px 0 #a2d2ff;
+  }
+
+  h2 {
+    font-size: 0.75rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .quiz-btn {
+    font-size: 0.5rem;
+    padding: 8px 12px;
+  }
 }

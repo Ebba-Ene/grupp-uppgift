@@ -1,6 +1,7 @@
 
 let score = 0
 
+
 //Hämta id från html
 const ScoreCounter = document.querySelector("#scoreBar span")
 const scoreBar = document.getElementById('scoreBar')
@@ -123,7 +124,7 @@ let currentQuestionIndex = 0
 //Skapar funktioner för alla ämnen
 function showWebbQuiz() {
   const webbQuizPage = document.createElement('div')
-  webbQuizPage.id = "webbQuizPage"
+  webbQuizPage.id = "webQuizPage"
   main.appendChild(webbQuizPage)
 
   showQuestions(webDevelopmentQuiz, webbQuizPage);
@@ -141,9 +142,10 @@ function showSportQuiz() {
   const sportQuizPage = document.createElement('div')
   sportQuizPage.id = "sportQuizPage"
   main.appendChild(sportQuizPage)
+  showQuestions(sportQuiz, sportQuizPage);
 }
 
-//Gör så att frågor och svar dycker upp
+//Gör så att frågor och svar dyker upp
 function showQuestions(whichQuiz, whichPage){
    if(currentQuestionIndex > 4){
     whichPage.style.display = "none"
@@ -152,22 +154,22 @@ function showQuestions(whichQuiz, whichPage){
     finishedPage.id = 'finishedPage'
 
     const finishedHeader = document.createElement('h2')
+    finishedHeader.className = "centered-box"
 
     if (score === 5){
       finishedHeader.innerHTML = "Du fick alla rätt!"
     } else if (score >= 3){
       finishedHeader.innerHTML = "Du klarade det!"
     } else {
-      finishedHeader.innerHTML = "Du förlorade!"
+      finishedHeader.innerHTML = "Du förlorade men försök gärna igen!"
     }
-
-    console.log(finishedHeader)
 
     main.appendChild(finishedPage)
     finishedPage.appendChild(finishedHeader)
 
     const playAgainBtn = document.createElement('button')
     playAgainBtn.innerHTML = "Spela igen"
+    playAgainBtn.classList.add('quiz-btn') 
 
     finishedPage.appendChild(playAgainBtn)
 
@@ -178,18 +180,25 @@ function showQuestions(whichQuiz, whichPage){
       score = 0
       updateScoreDisplay()
       currentQuestionIndex = 0
+
+      scoreBar.style.display = "none"
     })
+    return
 
   }
 
   const questionObj = whichQuiz[currentQuestionIndex]
 
   const questionHeading = document.createElement('h2')
+  questionHeading.className = "question centered-box"
   questionHeading.innerHTML = questionObj.text
 
   const answersUl = document.createElement('ul')
+  answersUl.className = "answers"
+
   questionObj.options.forEach((opt, i) => {
     const li = document.createElement('li')
+    li.classList.add('quiz-btn')
     li.textContent = opt
     li.addEventListener('click', () =>{
       if(i === questionObj.correct){
