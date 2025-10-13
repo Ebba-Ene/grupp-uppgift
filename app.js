@@ -1,7 +1,6 @@
 
 let score = 0
 
-
 //Hämta id från html
 const ScoreCounter = document.querySelector("#scoreBar span")
 const scoreBar = document.getElementById('scoreBar')
@@ -12,7 +11,7 @@ const geoQuizBtn = document.getElementById('geoQuizBtn')
 const sportQuizBtn = document.getElementById('sportQuizBtn')
 
 //Frågor och svar
-const webDevelopmentQuiz = 
+const webbDevelopmentQuiz = 
 [{ 
     text: "Vilket språk används för att styla webbsidor?", 
     options: ["HTML", "CSS", "JavaScript"], 
@@ -109,14 +108,12 @@ geoQuizBtn.addEventListener('click', () => {
   showGeoQuiz()
   startPage.style.display = "none"
   scoreBar.style.display = "block"
-
 })
 
 sportQuizBtn.addEventListener('click', () => {
   showSportQuiz()
   startPage.style.display = "none"
   scoreBar.style.display = "block"
-
 })
 
 let currentQuestionIndex = 0
@@ -127,7 +124,7 @@ function showWebbQuiz() {
   webbQuizPage.id = "webQuizPage"
   main.appendChild(webbQuizPage)
 
-  showQuestions(webDevelopmentQuiz, webbQuizPage);
+  showQuestions(webbDevelopmentQuiz, webbQuizPage);
 }
 
 function showGeoQuiz() {
@@ -159,7 +156,7 @@ function showQuestions(whichQuiz, whichPage){
     if (score === 5){
       finishedHeader.innerHTML = "Du fick alla rätt!"
     } else if (score >= 3){
-      finishedHeader.innerHTML = "Du klarade det!"
+      finishedHeader.innerHTML = `Du klarade det med ${score} poäng!`
     } else {
       finishedHeader.innerHTML = "Du förlorade men försök gärna igen!"
     }
@@ -183,8 +180,6 @@ function showQuestions(whichQuiz, whichPage){
 
       scoreBar.style.display = "none"
     })
-    return
-
   }
 
   const questionObj = whichQuiz[currentQuestionIndex]
